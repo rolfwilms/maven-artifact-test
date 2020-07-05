@@ -39,11 +39,12 @@ public class TestArtifactInclusion {
 	private void testArtifactInclusion(String scope, String artifactScope) {
 	    ScopeArtifactFilter filter = new ScopeArtifactFilter(scope);
         Artifact artifact = factory.createProjectArtifact("test", "test", "0.0.1", artifactScope);
-        System.out.println(filter.getScope()+"\t" + artifactScope + "\t" + (filter.include(artifact) ? "YES" : "NO"));
+        System.out.println("|"+filter.getScope()+"|" + artifactScope + "|" + (filter.include(artifact) ? "YES" : "NO")+"|");
 	}
 	
 	public boolean runTests() {
-		System.out.println("Scope\tArtifact Scope\tIncluded");
+		System.out.println("|Scope|Artifact Scope|Included|");
+		System.out.println("|--------------------|--------------------|----------|");
 		String scope = Artifact.SCOPE_RUNTIME;
 		for(String artifactScope : scopes) {
 			testArtifactInclusion(scope, artifactScope);
